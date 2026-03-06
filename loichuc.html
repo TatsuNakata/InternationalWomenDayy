@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Lời Chúc 8/3</title>
+
+<style>
+
+body{
+margin:0;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-family:Segoe UI;
+background-image:url("minecraft.jpg");
+background-size:cover;
+background-position:center;
+}
+
+/* hoa rơi phía sau */
+
+.hoa{
+position:fixed;
+top:-50px;
+font-size:25px;
+animation:roi linear infinite;
+z-index:0;
+pointer-events:none;
+}
+
+@keyframes roi{
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:1;
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* khung lời chúc */
+
+.container{
+position:relative;
+z-index:2;
+color:white;
+background:rgba(0,0,0,0.4);
+padding:40px 60px;
+border-radius:25px;
+text-align:center;
+backdrop-filter:blur(6px);
+box-shadow:0 0 20px rgba(255,182,193,0.5);
+animation:fadeIn 2s;
+}
+
+/* tiêu đề */
+
+h1{
+font-size:45px;
+font-style:italic;
+margin-bottom:20px;
+}
+
+/* chữ chuyển màu */
+
+.text{
+background:linear-gradient(270deg,#ff9a9e,#fbc2eb,#ffd6ff,#ff9a9e);
+background-size:400%;
+-webkit-background-clip:text;
+color:transparent;
+animation:mauchay 10s linear infinite;
+}
+
+/* icon */
+
+.icon{
+color:white;
+text-shadow:0 0 10px pink,0 0 20px hotpink;
+}
+
+/* đoạn văn */
+
+p{
+font-size:22px;
+margin:12px 0;
+}
+
+/* animation */
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes mauchay{
+0%{background-position:0%}
+100%{background-position:400%}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+<span class="icon">🌸</span>
+<span class="text">Mừng Ngày 8/3</span>
+<span class="icon">🌸</span>
+</h1>
+
+<p>
+Tớ chúc các chị em một ngày 8/3 thật vui và thật nhiều năng lượng nheee
+</p>
+
+<p>
+Tớ mong là mọi người luôn xinh đẹp, hạnh phúc và gặp thật nhiều điều tốt đẹp trong cuộc sống.
+</p>
+
+<p>
+Chúc cho những dự định sắp tới của mọi người đều thuận lợi và thành công nữa 🌸
+</p>
+
+</div>
+
+<script>
+
+function taoHoa(){
+
+const hoa=document.createElement("div");
+hoa.classList.add("hoa");
+hoa.innerHTML="🌸";
+
+hoa.style.left=Math.random()*100+"vw";
+hoa.style.animationDuration=(4+Math.random()*5)+"s";
+hoa.style.fontSize=(20+Math.random()*20)+"px";
+
+document.body.appendChild(hoa);
+
+setTimeout(()=>{
+hoa.remove();
+},9000);
+
+}
+
+setInterval(taoHoa,350);
+
+</script>
+
+</body>
+</html>

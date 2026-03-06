@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Hoa Rơi</title>
+
+<style>
+
+body{
+margin:0;
+overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+font-family:Segoe UI;
+background-image:url("minecraft.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+/* tiêu đề */
+
+h1{
+font-size:45px;
+z-index:2;
+font-style:italic;
+text-align:center;
+animation: baychu 3s ease-in-out infinite;
+}
+
+/* chữ chuyển màu */
+
+.text{
+background: linear-gradient(270deg,#a6c1ee,#ff9a9e,#fbc2eb,#a6c1ee);
+background-size:400%;
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+animation:mauchay 8s linear infinite;
+}
+
+@keyframes mauchay{
+0%{background-position:0%}
+100%{background-position:400%}
+}
+
+/* icon hoa */
+
+.icon{
+color:white;
+text-shadow:0 0 10px pink;
+}
+
+/* hiệu ứng bay nhẹ */
+
+@keyframes baychu{
+0%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0);}
+}
+
+/* hoa rơi */
+
+.hoa{
+position:fixed;
+top:-50px;
+font-size:25px;
+animation:roi linear forwards;
+}
+
+@keyframes roi{
+0%{
+transform:translateY(-50px);
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>
+<span class="icon">🌸</span>
+<span class="text">Hoa Cho Ngày 8/3</span>
+<span class="icon">🌸</span>
+</h1>
+
+<script>
+
+function taoHoa(){
+
+const hoa = document.createElement("div");
+hoa.className = "hoa";
+hoa.innerHTML = "🌸";
+
+hoa.style.left = Math.random()*100 + "vw";
+hoa.style.animationDuration = (3 + Math.random()*5) + "s";
+hoa.style.fontSize = (20 + Math.random()*20) + "px";
+
+document.body.appendChild(hoa);
+
+setTimeout(function(){
+hoa.remove();
+},8000);
+
+}
+
+setInterval(taoHoa,300);
+
+</script>
+
+</body>
+
+</html>
